@@ -1,0 +1,151 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.contact-link {
+    text-decoration: none;
+    color: #3498db; /* Text color for the link */
+}
+
+.contact-link:hover {
+    text-decoration: underline; /* Underline the text on hover */
+    background-color: transparent; /* Remove background color on hover */
+}
+
+.category {
+    display: block;
+    text-decoration: none;
+    padding: 30px 60px;
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Style for the header banner */
+.banner {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.banner h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.banner p {
+    font-size: 24px;
+    margin: 0;
+}
+
+nav {
+    text-align: center;
+    background-color: #333;
+}
+
+.button-list {
+    list-style: none;
+    padding: 0;
+}
+
+.button-list li {
+    display: inline;
+    margin: 10px;
+}
+
+.button-list a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+}
+
+.button-list a:hover {
+    background-color: #258cd1;
+    border: 2px solid #258cd1;
+}
+
+/* Style the button container */
+.hover-button {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+/* Style the button text */
+.hover-button span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #3498db;
+    color: #ffffff;
+    text-align: center;
+    line-height: 200px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* Hide the image initially */
+.hidden-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the image and hide the button text on hover */
+.hover-button:hover .hidden-image {
+    opacity: 1;
+}
+
+.hover-button:hover span {
+    opacity: 0;
+}
