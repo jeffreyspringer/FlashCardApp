@@ -1,0 +1,187 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial;
+  }
+  
+  :root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+  }
+  
+  body {
+    --hue: var(--hue-neutral);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(var(--hue), 100%, 20%);
+  }
+  
+  #question-container {
+    text-align: center; /* Center align the text within the container */
+    }
+
+    #question {
+    font-size: 50px; /* Adjust the font size as needed */
+    }
+
+  body.correct {
+    --hue: var(--hue-correct);
+  }
+  
+  body.wrong {
+    --hue: var(--hue-wrong);
+  }
+  
+  .container {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+  }
+  
+  .btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .btn {
+    --hue: var(--hue-neutral);
+    border: 5px solid hsl(var(--hue), 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border-radius: 100px;
+    padding: 50px 50px;
+    color: white;
+    outline: none;
+    font-size: 18px; /* Adjust the font size as needed */
+  }
+  
+  .btn:hover {
+    border-color: black;
+  }
+  
+  .btn.correct {
+    --hue: var(--hue-correct);
+    color: black;
+  }
+  
+  .btn.wrong {
+    --hue: var(--hue-wrong);
+  }
+  
+  .start-btn, .next-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hide {
+    display: none;
+  }
+  /* Style the "Restart" and "Home" buttons */
+#start-btn, #home-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 5px solid hsl(var(--hue-neutral), 100%, 30%); /* Match the style of the other buttons */
+    background-color: hsl(var(--hue-neutral), 100%, 50%); /* Match the style of the other buttons */
+    border-radius: 100px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    margin-right: 10px; /* Add spacing between the buttons */
+}
+
+#start-btn:hover, #home-btn:hover {
+    border-color: black;
+}
+
+#start-btn.correct, #home-btn.correct {
+    border-color: hsl(var(--hue-correct), 100%, 30%);
+    background-color: hsl(var(--hue-correct), 100%, 50%);
+    color: black;
+}
+
+#start-btn.wrong, #home-btn.wrong {
+    border-color: hsl(var(--hue-wrong), 100%, 30%);
+    background-color: hsl(var(--hue-wrong), 100%, 50%);
+    color: black;
+}
+
+/* Position the "Restart" and "Home" buttons next to each other */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Add a link for the "Home" button */
+
+
+/* Style for the "Home" button when not hidden */
+#home-btn:not(.hide) {
+    display: inline-block;
+}
+
+/* Style for the "Home" button when hidden */
+#home-btn.hide {
+    display: none;
+}
+
+#home-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 5px solid hsl(var(--hue-neutral), 100%, 30%);
+    background-color: hsl(var(--hue-neutral), 100%, 50%);
+    border-radius: 100px;
+    color: white !important; /* Add !important to override other styles */
+    outline: none;
+    cursor: pointer;
+    text-decoration: none !important; /* Add !important to remove underline */
+    transition: border-color 0.3s;
+    display: inline-block;
+}
+
+#home-btn:hover {
+    border-color: black;
+    color: white !important; /* Add !important to override other styles */
+    text-decoration: none !important; /* Add !important to remove underline */
+}
+
+#home-btn.correct {
+    border-color: hsl(var(--hue-correct), 100%, 30%);
+    background-color: hsl(var(--hue-correct), 100%, 50%);
+    color: black !important; /* Add !important to override other styles */
+}
+
+#home-btn.wrong {
+    border-color: hsl(var(--hue-wrong), 100%, 30%);
+    background-color: hsl(var(--hue-wrong), 100%, 50%);
+    color: black !important; /* Add !important to override other styles */
+}
+
+#text-above-start {
+    text-align: center; /* Center align the text */
+    font-size: 50px; /* Adjust the font size as needed */
+    display: block;
+}
+
+#text-above-start.hide {
+    display: none;
+}
