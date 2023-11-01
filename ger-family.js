@@ -18,6 +18,7 @@ function startGame() {
   startButton.classList.add('hide');
   homeButton.classList.add('hide');
   textAboveStart.classList.add('hide'); // Hide the text above the Start button
+  answerSelected = false; // Reset the answerSelected variable
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove('hide'); // Show the question container
@@ -25,6 +26,7 @@ function startGame() {
 }
 
 function setNextQuestion() {
+  answerSelected = false; // Reset the answerSelected variable
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
@@ -51,20 +53,30 @@ function resetState() {
   }
 }
 
+let answerSelected = false;
+
 function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
-  setStatusClass(document.body, correct)
+  if (answerSelected) {
+    return; // Do nothing if an answer has already been selected
+  }
+  
+  answerSelected = true; // Set the answer as selected
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
+  setStatusClass(document.body, correct);
   Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
-  })
+    if (button !== selectedButton) {
+      button.disabled = true; // Disable other answer buttons
+    }
+  });
+  
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide');
-    homeButton.classList.add('hide'); // Hide the Home button
+    homeButton.classList.add('hide');
   } else {
     startButton.innerText = 'Restart';
     startButton.classList.remove('hide');
-    homeButton.classList.remove('hide'); // Show the Home button
+    homeButton.classList.remove('hide');
   }
 }
 
