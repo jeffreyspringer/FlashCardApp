@@ -7,6 +7,9 @@ const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 
 let shuffledQuestions, currentQuestionIndex;
+let score = 0;
+let answerSelected = false;
+let scoreElement; // Define a variable to store the score element
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
@@ -22,6 +25,15 @@ function startGame() {
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove('hide'); // Show the question container
+  
+  // Remove the score element if it exists
+  const scoreElement = document.querySelector('.container p');
+  if (scoreElement) {
+    scoreElement.remove();
+  }
+
+  score = 0;
+
   setNextQuestion();
 }
 
@@ -53,8 +65,6 @@ function resetState() {
   }
 }
 
-let answerSelected = false;
-
 function selectAnswer(e) {
   if (answerSelected) {
     return; // Do nothing if an answer has already been selected
@@ -63,6 +73,15 @@ function selectAnswer(e) {
   answerSelected = true; // Set the answer as selected
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
+  
+  if (correct) {
+    selectedButton.classList.add('correct-answer'); // Add a CSS class for correct answers
+    score++; // Increment the score for correct answers
+  } else {
+    selectedButton.classList.add('wrong-answer'); // Add a CSS class for wrong answers
+  }
+
+
   setStatusClass(document.body, correct);
   Array.from(answerButtonsElement.children).forEach(button => {
     if (button !== selectedButton) {
@@ -77,8 +96,10 @@ function selectAnswer(e) {
     startButton.innerText = 'Restart';
     startButton.classList.remove('hide');
     homeButton.classList.remove('hide');
+    displayScore(); // Call a function to display the score
   }
 }
+
 
 function setStatusClass(element, correct) {
   clearStatusClass(element)
@@ -97,6 +118,20 @@ function clearStatusClass(element) {
 homeButton.addEventListener('click', function() {
     window.location.href = 'german.html'; // Navigate to the "german.html" page
 });
+
+function displayScore() {
+  // Create a new element to display the score
+  const scoreElement = document.createElement('p');
+  scoreElement.innerText = `You got ${score} out of ${questions.length} questions right.`;
+
+  // Apply CSS styles for centering and font size
+  scoreElement.style.textAlign = 'center';
+  scoreElement.style.fontSize = '1.5em'; // Adjust the font size as needed
+  
+  // Append the score element to the container
+  const container = document.querySelector('.container');
+  container.appendChild(scoreElement);
+}
 
 const questions = [
   {

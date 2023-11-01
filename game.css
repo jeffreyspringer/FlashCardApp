@@ -61,11 +61,12 @@
     padding: 50px 50px;
     color: white;
     outline: none;
-    font-size: 18px; /* Adjust the font size as needed */
+    font-size: 30px; /* Adjust the font size as needed */
   }
   
   .btn:hover {
     border-color: black;
+    color:black;
   }
   
   .btn.correct {
@@ -185,3 +186,13 @@
 #text-above-start.hide {
     display: none;
 }
+
+.correct-answer {
+    background-color: green; /* Change to the desired color for correct answers */
+    color: white; /* Text color for correct answers */
+  }
+  
+  .wrong-answer {
+    background-color: red; /* Change to the desired color for wrong answers */
+    color: white; /* Text color for wrong answers */
+  }
