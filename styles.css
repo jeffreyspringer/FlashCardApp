@@ -45,15 +45,30 @@ ul {
 }
 
 .category {
-    display: block;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items horizontally */
+    justify-content: center; /* Center the content vertically and horizontally */
     text-decoration: none;
-    padding: 30px 60px;
+    padding: 20px 10px; /* Increase the padding for a bigger button */
+    padding: 10px; /* Adjust padding for better spacing */
     background-color: #fff;
     color: #007bff;
     border: 1px solid #007bff;
     border-radius: 5px;
     font-size: 18px;
     transition: background-color 0.3s, color 0.3s;
+    margin: 10px; /* Adjust margin for spacing */
+
+    /* Add a minimum width for consistent button sizes */
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.category img {
+    width: 100px; /* Adjust the image size as needed */
+    height: 100px; /* Adjust the image size as needed */
+    margin-bottom: 10px; /* Adjust the margin between the image and text */
 }
 
 .category:hover {
